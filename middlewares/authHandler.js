@@ -16,7 +16,7 @@ const authHandler = expressAsyncHandler(async(req, res, next) => {
 
     // extract id from the decoded object
     const { _id } = decodedObj.user;
-    // get user details from id
+    // get user details from id except password
     const user = await User.findById({_id}).select("-password"); ;
 
     if(!user){
